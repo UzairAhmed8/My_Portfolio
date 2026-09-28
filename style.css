@@ -15,6 +15,7 @@ body{
     height: auto;
     color: var(--secondary-color);
     font-family: sans-serif;
+    overflow-x: hidden; /* Side scrollbar hide karne ke liye */
 }
 .intro-parent-section{
     display: flex;
@@ -29,22 +30,21 @@ body{
     gap: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 600;
-}.intro-upper-sec{
+}
+.intro-upper-sec{
     display: flex;
     gap: 10px;
     justify-content: space-between;
-    animation: slideIn 1s ease-in-out 0.5s both ;
 }
 .intro-mid-sec img{
     width: 600px;
     border-radius: 15px;
     box-shadow: 30px 30px 30px black;
-    animation: opacity 1s ease-in-out 1.5s both ;
-}.intro-bottom-sec{
+}
+.intro-bottom-sec{
     display: flex;
     gap: 10px;
     justify-content: space-between;
-    animation: slideIn 1s ease-in-out 0.5s both ;
 }
 .web-parent-section{
     padding:100px;
@@ -102,36 +102,16 @@ body{
     border: 1px solid transparent;
     background-color: transparent;
     transform: scale(1.2 , 1.2);
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-@keyframes slideIn {
-  0% {
+/* --- SCROLL ANIMATION STYLES --- */
+.scroll-animate-left {
     opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    transform: translateX(-150px); /* Left side mein hidden rahega */
+    transition: all 0.8s ease-out; /* Smooth slide speed */
 }
-@keyframes opacity {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+
+.scroll-animate-left.show {
+    opacity: 1;
+    transform: translateX(0); /* Normal position */
 }
